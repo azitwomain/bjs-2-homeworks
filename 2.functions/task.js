@@ -1,10 +1,8 @@
 function getArrayParams(...arr) {
-	let min = Infinity;
-	let max = -Infinity;
-	let avg;
-	min = Math.min(...arr);
-	max = Math.max(...arr);
-	avg = Number((numbers.reduce((sum, elem) => sum + elem, 0) / numbers.length).toFixed(2));
+	
+	let min = Math.min(...arr);
+	let max = Math.max(...arr);
+	let avg = Number((arr.reduce((sum, elem) => sum + elem, 0) / arr.length).toFixed(2));
 	return {
 		min: min,
 		max: max,
@@ -14,14 +12,14 @@ function getArrayParams(...arr) {
 
 function summElementsWorker(...arr) {
 
-	return sum = arr.reduce((sum, elem) => sum + elem, 0);
+	return arr.reduce((sum, elem) => sum + elem, 0);
 }
 
 function differenceMaxMinWorker(...arr) {
 	if (arr.length === 0) {
 		return 0;
 	}
-	return difference = Math.max(...arr) - Math.min(...arr);
+	return Math.max(...arr) - Math.min(...arr);
 
 }
 
@@ -36,7 +34,7 @@ function differenceEvenOddWorker(...arr) {
 			oddNum = oddNum + arr[i]
 		}
 	}
-	return differenceEvenOdd = evenNum - oddNum;
+	return evenNum - oddNum;
 
 }
 
@@ -48,19 +46,19 @@ function averageEvenElementsWorker(...arr) {
 	let evenNum = 0;
 	let evenCount = 0;
 	for (let i = 0; i < arr.length; i++) {
-		if (numbers[i] % 2 == 0) {
+		if (arr[i] % 2 == 0) {
 			evenNum = evenNum + arr[i]
 			evenCount++
 		}
 	}
-	return averageEven = evenNum / evenCount;
+	return  evenNum / evenCount;
 
 }
 
 function makeWork(arrOfArr, func) {
 	let res = [];
-	for (let i = 0; i < arrOfArr.length; i++) {
-		res = funk.push(...arrOfArr[i])
+	for (let i = 0; i < arrOfArr.length; i++) {	
+		res.push(func(...arrOfArr[i])) 
 
 	}
 	return Math.max.apply(null, res)
