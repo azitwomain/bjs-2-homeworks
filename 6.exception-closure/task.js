@@ -1,14 +1,14 @@
-﻿function parseCount(parseCount) {
-    let count = Number.parseFloat(parseCount);
-    if (count === NaN) {
+﻿function parseCount(parseNum) {
+    let count = Number.parseFloat(parseNum);
+    if (Number.isNaN(count)) {
         throw new Error("Невалидное значение")
     } else {
         return count;
     }
 }
-function validateCount(parseCount) {
+function validateCount(parseNum) {
     try {
-        return parseCount(parseCount);
+        return parseCount(parseNum);
     } catch (error) {
         return error;
     }
@@ -16,11 +16,9 @@ function validateCount(parseCount) {
 
 class Triangle {
     constructor(a, b, c) {
-        let a = a;
-        let b = b;
-        let c = c;
-        this.perimeter = 0;
-        this.area = 0;
+        this.a = a;
+        this.b = b;
+        this.c = c;
         if (a + b < c || a + c < b || c + b < a) {
             throw new Error("Треугольник с такими сторонами не существует")
         }
@@ -30,7 +28,7 @@ class Triangle {
         return this.perimeter = a + b + c
     }
     get area() {
-        const p = perimeter / 2;
+        const p = this.perimeter / 2;
         return Number(Math.sqrt(p * (p - a) * (p - b) * (p - c)).toFixed(3));
     }
 }
