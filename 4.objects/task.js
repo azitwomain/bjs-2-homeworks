@@ -11,16 +11,16 @@ Student.prototype.setSubject = function (subjectName) {
 
 Student.prototype.addMarks = function (...marks) {
     if (this.marks) {
-        this.marks = marks
-    } else {
-        delete this.marks;
+        this.marks.push(marks);
     }
     }
   
 
 Student.prototype.getAverage = function () {
+  let count;
   if (this.marks) {
-    this.marks.reduce(((el, num) => el + num), 0)
+    count = this.marks.reduce(((el, num) => el + num), 0)
+    return avg = count / this.marks.length;
   } else {
     return 0
   }
